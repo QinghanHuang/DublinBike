@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="{{ url_for ('static',filename='css/test.css')}}">
+</head>
+<body>
+<div>
+    <p>station number: {{ station.number }}</p>
+    <p>address: {{ station.address }}</p>
+    <p>banking: {{ station.banking }}</p>
+    <p>stands: {{ station.bike_stands }}</p>
+    <p>name: {{ station.name }}</p>
+    <p>lat: {{ station.position_lat }}</p>
+    <p>lon: {{ station.position_lng }}</p>
+
+</div>
+
+</body>
+</html>
