@@ -1,0 +1,154 @@
+#map {
+    transition: width .5s ease-in-out;
+    border-radius: 10px;
+}
+#map.open_map {
+    width: 50%;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.plan_side_menu {
+    height: 100%;
+    background-color: white;
+    /* width: 35%; */
+    /* right: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* position: fixed; */
+    transition: transform .5s ease-in-out;
+    /* z-index: 9999; */
+    transform: translateX(-100%);
+    width: 0px;
+}
+
+.plan_side_menu.open {
+    transform: translateX(0%);
+    width: 50%;
+    height: 120vh;
+    margin-top: 20px;
+
+}
+
+
+
+.search {
+    width: 80%;
+    position: relative;
+    display: flex;
+    margin: 5px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.search_box {
+    width: 100%;
+    border: 2px solid #0c4c54;
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    
+}
+
+.searchTerm:focus {
+    color: #E3E3E3;
+}
+
+.searchButton {
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    color: #0c4c54;
+    background-color: white;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+}
+
+.date_picker_container {
+    width: 75%;
+}
+
+.time_picker_container {
+    width: 40%;
+    display: flex;
+
+}
+
+.date_time_picker_container {
+    width: 50%;
+    height: 0;
+    transition: height 0.5s;
+    overflow: hidden;
+    display: flex;
+}
+
+.date_time_picker_container_hidden {
+    width: 80%;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+select {
+    appearance: none;
+}
+
+.time_picker {
+    padding: 10px 4px;
+    margin-left: 5px;
+    outline: none;
+    border: 2px solid #0c4c54;
+    border-radius: 5px;
+}
+
+.date_time_planner {
+    width: 70%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.flatpickr-calendar {
+    width: 300px;
+}
+
+.date_picker {
+    padding: 10px 5px;
+    border: 2px solid #0c4c54;
+    border-radius: 5px;
+
+}
+
+.submit_button {
+    width: 50%;
+    padding: 10px 5px;
+    background-color: #0c4c54;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.prediction_Container {
+    margin: 50px;
+    width: 100%;
+    padding: 0px 15px;
+    display: none;
+}
+
+.predict_title {
+    text-align: center;
+    font-weight: 800;
+    font-size: 30px;
+}

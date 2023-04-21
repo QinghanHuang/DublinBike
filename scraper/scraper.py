@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 import config
 from datetime import datetime
 import requests
@@ -14,7 +13,6 @@ engine = create_engine(config.DB_URL, echo=True)
 
 # Creates an interface for running the sql query and update database
 connection = engine.connect()
-
 
 # Writes JSON file to string
 # ec2 path /home/ubuntu/dbbikes/
@@ -50,10 +48,9 @@ def update_station_db(text):
     # Commits the query results to database
     connection.commit()
 
-
 # Load dynamic data to database
 def update_availability_db(text):
-    x = time.time()
+    scraping_date = time.time()
     availibility = json.loads(text)
     for station in availibility:
         # Omitting test terminal
@@ -69,12 +66,11 @@ def update_availability_db(text):
         connection.execute(sqla.text(
             f"""
         insert into Availability (number, last_update, available_bikes, available_bike_stands, status, scraping_date) 
-        values({vals[0]}, {vals[1]}, {vals[2]}, {vals[3]}, "{vals[4]}", {x})
+        values({vals[0]}, {vals[1]}, {vals[2]}, {vals[3]}, "{vals[4]}", {scraping_date})
         """
         )
         )
     connection.commit()
-
 
 def main():
     try:
@@ -89,6 +85,5 @@ def main():
         update_availability_db(response.text)
     except:
         print(traceback.format_exc())
-
 
 main()

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ url_for ('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/loader.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{{ url_for('static',filename='js/map.js') }}"></script>
+ 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?v=beta&libraries=places,marker&key=AIzaSyAFco5v19Ij4WcROHvm8cL93kbvYaiP6m4&callback=initMap"
+    async defer></script>
+    {% block link %}
+    <title>title</title>
+    {% endblock %}
+
+</head>
+
+<body>
+    <div class="page">
+
+        <!--nav-->
+        <nav class="header_nav">
+            <div class="logo_container"><a href="/"><img class="logo" alt="" src="../static/img/logo.jpg"></a></div>
+            <div class="navigator_container">
+                <div class="navigation_content"><a class="navigation_links" href="/">Home</a></div>
+                <div class="navigation_content"><a class="navigation_links" href="/plan">Plan</a></div>
+            </div>
+            <div class="weather_container">
+
+                <div class="dropdown">
+                    <img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png" ID="icon0"
+                        class="icon">
+                    <div class="dropdown-content">
+                        <table id="weatherTable">
+                            <tr>
+                                <td ID="day1">Day1</td>
+                                <td><img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png"
+                                        ID="icon1" class="icon"></td>
+                            </tr>
+                            <tr>
+                                <td ID="day2">Day2</td>
+                                <td><img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png"
+                                        ID="icon2" class="icon"></td>
+                            </tr>
+                            <tr>
+                                <td ID="day3">Day3</td>
+                                <td><img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png"
+                                        ID="icon3" class="icon"></td>
+                            </tr>
+                            <tr>
+                                <td ID="day4">Day4</td>
+                                <td><img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png"
+                                        ID="icon4" class="icon"></td>
+                            </tr>
+                            <tr>
+                                <td ID="day5">Day5</td>
+                                <td><img src="https://openweathermap.org/img/wn/10d.png" alt="static/img/02d.png"
+                                        ID="icon5" class="icon"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--nav-->
+
+        <div class="content">
+
+            {% block title %}
+            {% endblock %}
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        <!-- ----FOOTER---- -->
+        <footer>
+            <p class="contact">Contact DublinBikes via Social Media</p>
+            <div class="social">
+                <a href="https://www.linkedin.com/company/jcdecaux/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/jcdecauxireland"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.facebook.com/JCDecaux/"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <p class="end">© 2023 Kamal Cheaito, Manish Salian & Qinghan Huang. All rights reserved.</p>
+        </footer>
+        <!-- ----FOOTER---- -->
+    </div>
+
+
+</body>
+
+
+
+
+
+</html>

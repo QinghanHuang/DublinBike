@@ -1,0 +1,187 @@
+
+
+/* Optional: Makes the sample page fill the window. */
+
+#map {
+    height: 100%;
+    width: 100%;
+    transition: width .5s ease-in-out;
+    border-radius: 10px;
+}
+#map.open_map {
+    width: 65%;
+}
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #2b2943;
+    font-weight: 500;
+}
+
+
+.wrapper_index {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #fdfdfb;
+}
+
+.station_info {
+    background-color: #fdfdfb;
+    height: 100%;
+    transition: transform .5s ease-in-out;
+    transform: translateX(-100%);
+    width: 0px;
+}
+
+.station_info.open_station_info {
+    transform: translateX(0%);
+    width: 35%;
+    padding: 10px 0px;
+}
+
+.icon {
+    font-size: 30px;
+}
+
+
+
+.station_name {
+    width: 80%;
+    font-size: 20px;
+}
+
+.station_lat_lng {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.station_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.station_lat_lng_icon {
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+    display: flex;
+}
+
+.station_spacer {
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.property {
+    align-items: center;
+    background-color: #ff6833;
+    border-radius: 50%;
+    color: #263238;
+    display: flex;
+    font-size: 14px;
+    gap: 15px;
+    height: 20px;
+    justify-content: center;
+    padding: 4px;
+    position: relative;
+    position: relative;
+    transition: all 0.3s ease-out;
+    width: 30px;
+}
+
+.property::after {
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid #ff6833;
+    content: "";
+    height: 0;
+    left: 50%;
+    position: absolute;
+    top: 95%;
+    transform: translate(-50%, 0);
+    transition: all 0.3s ease-out;
+    width: 0;
+    z-index: 1;
+}
+
+.property .icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 10px;
+    background-color: #ff6833;
+}
+
+.font_icon{
+    font-size: 15px;
+    color: #0c4c54;
+}
+
+.close_container{
+    width: 4%;
+}
+
+.side_pannel_info_header{
+    width: 100%;
+    display: flex;
+    margin:10px 0px ;
+}
+.station_name{
+    font-size: 20px;
+    color: #343434;
+    font-weight: 600;
+}
+
+.seperator{
+    width: 100%;
+    height: 1px;
+    background-color: #E3E3E3;
+    margin: 8px 0px;
+}
+.station_parking{
+    fint-size:20px;
+    display: flex;
+    width: 50%;
+}
+
+.station_parking_icon{
+border-radius: 50%;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 10px;
+}
+.station_parking_text_container{
+    display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+.station_banking_value{
+    margin-left: 10px;
+}
+.station_banking{
+    margin: 5px 0;
+}
+.charts{
+    position: relative;
+    padding: 0px 10px;
+}
+
+.show_loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}

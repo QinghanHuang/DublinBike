@@ -1,0 +1,164 @@
+{% extends 'parent.html' %}
+
+{% block link %}
+<title>Plan Your Journey</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../static/css/plan.css">
+<!-- <script
+src="https://maps.googleapis.com/maps/api/js?v=beta&libraries=places,marker&key=AIzaSyAFco5v19Ij4WcROHvm8cL93kbvYaiP6m4&callback=initMap"
+async defer></script> -->
+
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="wrapper">
+
+        <div class="plan_side_menu">
+                <div class="search">
+                        <div class="close_container" style="width: 10%; display: flex; justify-content: center;">
+                                <i class="fa-sharp fa-solid fa-location-dot font_icon" style="font-size: 25px;"></i>
+                        </div>
+                        <input type="text" class="search_box search_box-from" placeholder="Choose Starting Point..."
+                                onchange="checkField()" style="width: 90%;">
+                </div>
+
+                <div class="search">
+                        <div class="station_parking_icon" style="width: 10%; display: flex; justify-content: center; margin-right: 0;">
+                                <i class="fa-sharp fa-solid fa-location-crosshairs"
+                                        style="font-size: 20px;color: #0c4c54;"></i>
+                        </div>
+                        <input type="text" class="search_box search_box-to" placeholder="Choose Destination..."
+                                onchange="checkField()" style="width: 90%;">
+                </div>
+                <div class="date_time_picker_container_hidden">
+                        <div class="date_picker_container">
+                                <div class="group" style="display: flex;">
+                                        <div class="station_parking_icon" style="margin-left: 7px;">
+                                                <i class="fa-solid fa-calendar"
+                                                        style="font-size: 20px;color: #0c4c54;"></i>
+                                        </div>
+                                        <input class="date_picker" type="text" id="calendar-selectrange" style="margin-left: -2px;"
+                                                placeholder="Select A Day" onchange="checkField()">
+                                </div>
+                        </div>
+                        <div class="time_picker_container">
+                                <div class="station_parking_icon">
+                                        <i class="fa-solid fa-clock" style="font-size: 20px;color: #0c4c54;"></i>
+                                </div>
+                                <select class="time_picker hour_picker" onchange="checkField()">
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
+                                        <option value=6>6</option>
+                                        <option value=7>7</option>
+                                        <option value=8>8</option>
+                                        <option value=9>9</option>
+                                        <option value=10>10</option>
+                                        <option value=11>11</option>
+                                        <option value=12>12</option>
+                                </select>
+                                <select class="time_picker minutes_picker" onchange="checkField()">
+                                        <option value='00'>00</option>
+                                        <option value='15'>15</option>
+                                        <option value='30'>30</option>
+                                        <option value='45'>45</option>
+                                </select>
+                                <select class="time_picker meridiem_picker" onchange="checkField()">
+                                        <option value='AM'>AM</option>
+                                        <option value='PM'>PM</option>
+                                </select>
+                        </div>
+                </div>
+
+                <div class="submit_button" onclick="search_nearby()">Search</div>
+
+                <div class="prediction_Container">
+                        <div class="seperator"></div>
+                        <div class="predict_title">Source</div>
+                        <div class="side_pannel_info_header">
+                                <div class="close_container">
+                                        <i class="fa-sharp fa-solid fa-location-dot font_icon"
+                                                style="font-size: 20px;"></i>
+                                </div>
+                                <div class="station_name station_name_source"></div>
+                        </div>
+                        <div class="station_lat_lng">
+                                <div class="station_row">
+                                        <div>Latitude: </div>
+                                        <div class="station_lat station_lat_source"></div>
+                                </div>
+                                <div style="margin:0px 5px;">|</div>
+                                <div class="station_row">
+                                        <div>Longitude: </div>
+                                        <div class="station_lng station_lng_source"></div>
+                                </div>
+                        </div>
+
+                        <div class="station_row station_spacer" style="width: 100%; justify-content: start;">
+                                <div class="station_parking station_available">
+                                        <div class="station_parking_icon" style="background-color: #55C57A4D;">
+                                                <i class="fa-solid fa-bicycle font_icon" style="color: #25CD5D;"></i>
+                                        </div>
+                                        <div class="station_parking_text_container">
+                                                <div class="station_parking_text">Predicted Bikes</div>
+                                                <div class="station_parking_value station_bike_value_source"></div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="seperator"></div>
+                        <div class="predict_title">Destination</div>
+                        <div class="side_pannel_info_header">
+                                <div class="close_container">
+                                        <i class="fa-sharp fa-solid fa-location-dot font_icon"
+                                                style="font-size: 20px;"></i>
+                                </div>
+                                <div class="station_name station_name_dest"></div>
+                        </div>
+
+
+                        <div class="station_address"></div>
+
+                        <div class="station_lat_lng">
+                                <div class="station_row">
+                                        <div>Latitude: </div>
+                                        <div class="station_lat station_lat_dest"></div>
+                                </div>
+                                <div style="margin:0px 5px;">|</div>
+                                <div class="station_row">
+                                        <div>Longitude: </div>
+                                        <div class="station_lng station_lng_dest"></div>
+                                </div>
+                        </div>
+                        <div class="station_row station_spacer" style="width: 100%; justify-content: start;">
+                                <div class="station_parking">
+                                        <div class="station_parking_icon" style="background-color:#FF68334D;">
+                                            <i class="fa-solid fa-p font_icon" style="color: #FF6833;"></i>
+                                        </div>
+                                        <div class="station_parking_text_container">
+                                            <div class="station_parking_text">Predicted Bike Stands</div>
+                                            <div class="station_parking_value  station_parking_value_dest"></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div id="map">
+
+
+        </div>
+</div>
+<!--To show details and plot of station -->
+
+<!--To input search for journey-->
+<div id="journey_page"></div>
+<script src="{{ url_for('static',filename='js/plan.js') }}"></script>
+
+{% endblock %}

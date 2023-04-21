@@ -7,6 +7,7 @@ STATIONS_URI = "https://api.jcdecaux.com/vls/v1/stations"
 WEAKEY = "d7919dca0d3076d87855ecce2bd11059"
 CITY = "dublin"
 WEA_LON_URI = "https://api.openweathermap.org/data/2.5/weather?lat=53.350000&lon=-6.260000&appid=d7919dca0d3076d87855ecce2bd11059&units=metric"
+WEA_HOURLY_URI = "https://api.openweathermap.org/data/2.5/forecast?lat=53.350000&lon=-6.260000&appid=d7919dca0d3076d87855ecce2bd11059"
 
 
 # DATABASE KEY
@@ -17,3 +18,4 @@ DB_USER = 'admin'
 DB_PASSWORD = 'dublinbikes23kmq'
 DB_URL = "mysql://{}:{}@{}:{}/{}".format(DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME)
 
+SQLALCHEMY_DATABASE_URI = DB_URL
